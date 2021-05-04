@@ -1,0 +1,108 @@
+﻿{
+  "data": [
+    {
+      "id": "1",
+      "type": "Car",
+      "make": "Ford",
+      "model": "Focus",
+      "retailPrice": "16500.00",
+      "features": {
+        "doors": "2",
+        "fuel": "Gas",
+        "transmission": "Manual",
+        "interior": "Leather"
+      }
+    },
+    {
+      "id": "2",
+      "type": "Car",
+      "make": "Ford",
+      "model": "Fusion",
+      "retailPrice": "22000.00",
+      "features": {
+        "doors": "4",
+        "fuel": "Hybrid",
+        "transmission": "Automatic",
+        "interior": "Leather"
+      }
+    },
+    {
+      "id": "3",
+      "type": "Truck",
+      "make": "Ford",
+      "model": "F-150",
+      "retailPrice": "24500.00",
+      "features": {
+        "doors": "4",
+        "fuel": "Gas",
+        "transmission": "Automatic",
+        "interior": "Cloth"
+      }
+    },
+    {
+      "id": "4",
+      "type": "Car",
+      "make": "Lincoln",
+      "model": "MKZ",
+      "retailPrice": "34500.00",
+      "features": {
+        "doors": "2",
+        "fuel": "Electric",
+        "transmission": "Automatic",
+        "interior": "Leather"
+      }
+    },
+    {
+      "id": "5",
+      "type": "SUV",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "retailPrice": "56000.00",
+      "features": {
+        "doors": "4",
+        "fuel": "Gas",
+        "transmission": "Automatic",
+        "interior": "Leather"
+      }
+    },
+    {
+      "id": "6",
+      "type": "Car",
+      "make": "Dodge",
+      "model": "Avenger",
+      "retailPrice": "20500.00",
+      "features": {
+        "doors": "4",
+        "fuel": "Electric",
+        "transmission": "Automatic",
+        "interior": "Cloth"
+      }
+    },
+    {
+      "id": "7",
+      "type": "Car",
+      "make": "Dodge",
+      "model": "Dart",
+      "retailPrice": "16000.00",
+      "features": {
+        "doors": "2",
+        "fuel": "Gas",
+        "transmission": "Manual",
+        "interior": "Leather"
+      }
+    },
+    {
+      "id": "8",
+      "type": "SUV",
+      "make": "Dodge",
+      "model": "Durango",
+      "retailPrice": "29500.00",
+      "features": {
+        "doors": "4",
+        "fuel": "Hybrid",
+        "transmission": "Automatic",
+        "interior": "Leather"
+      }
+    }
+  ]
+}
