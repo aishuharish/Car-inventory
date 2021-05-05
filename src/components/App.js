@@ -11,6 +11,7 @@ const App = () => {
 
   return (
     <div className="ui container">
+      <h1 class="ui header center aligned">Car Inventory Management System</h1>
       <BrowserRouter>
         <Header />
         <div>

@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 
 const InventoryList = ({ cars }) => {
-  const renderedList = cars.map((car) => <Item car={car} />);
+  const renderedList = cars.map((car) => <Item car={car} key={car.id} />);
 
   return (
     <div>
