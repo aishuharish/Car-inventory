@@ -23,7 +23,7 @@ const App = () => {
           <Route
             exact
             path="/"
-            render={(props) => <InventoryList cars={cars} />}
+            render={(props) => <InventoryList cars={cars} setCars={setCars} />}
           />
           <Route
             exact
