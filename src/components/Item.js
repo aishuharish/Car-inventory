@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
+// import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 const Item = ({ car }) => {
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
   //toggle function
-  const toggleState = () => {
-    if (toggle === false) setToggle(true);
-    else setToggle(false);
-  };
+  // const toggleState = () => {
+  //   if (toggle === false) setToggle(true);
+  //   else setToggle(false);
+  // };
 
   // fetch image URL
   const url = require(`../images/${car.id}_${car.make}_${car.model}.png`)
@@ -29,17 +30,22 @@ const Item = ({ car }) => {
     parseInt(car.features.interior === "Cloth" ? 0.0 : 1500.0);
 
   return (
-    <div className="card" key={car.id} onClick={() => toggleState()}>
-      {toggle ? <Modal car={car} retailPrice={retailPrice()} /> : null}
+    <Link
+      to={`/item/${car.id}`}
+      className="card"
+      key={car.id}
+      //   onClick={() => toggleState()}
+    >
+      {/* {toggle ? <Modal car={car} retailPrice={retailPrice()} /> : null} */}
       <div className="image">
         <img src={url} alt="carImage" />
       </div>
       <div className="content">
         <p className="header">{car.make}</p>
         <p>Model: {car.model}</p>
-        <p>Retail Price: {retailPrice()}</p>
+        <p>Retail Price: ${retailPrice(car)}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

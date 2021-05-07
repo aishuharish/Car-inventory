@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { Router } from "react-router";
 import Header from "./Header";
 import AddNew from "./AddNew";
 import InventoryList from "./InventoryList";
+import Modal from "./Modal";
+import history from "./history";
 
 import { data } from "../data";
 
@@ -11,8 +14,10 @@ const App = () => {
 
   return (
     <div className="ui container">
-      <h1 class="ui header center aligned">Car Inventory Management System</h1>
-      <BrowserRouter>
+      <h1 className="ui header center aligned">
+        Car Inventory Management System
+      </h1>
+      <Router history={history}>
         <Header />
         <div>
           <Route
@@ -20,9 +25,15 @@ const App = () => {
             path="/"
             render={(props) => <InventoryList cars={cars} />}
           />
+          <Route
+            exact
+            path="/item/:id"
+            render={(props) => <Modal cars={cars} />}
+          />
+
           <Route path="/new" exact component={AddNew} />
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 };

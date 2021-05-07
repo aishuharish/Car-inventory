@@ -5,11 +5,11 @@ const Header = () => {
   return (
     <div className="ui secondary pointing menu">
       <Link to="/" className=" ui item">
-        <h3 class="ui grey header">Inventory</h3>
+        <h3 className="ui grey header">Inventory</h3>
       </Link>
       <div className="right menu">
         <Link to="/new" className="ui item">
-          <h3 class="ui grey header">Add New</h3>
+          <h3 className="ui grey header">Add New</h3>
         </Link>
       </div>
     </div>
