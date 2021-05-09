@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import { Router } from "react-router";
 import Header from "./Header";
-import AddNew from "./AddNew";
+import AddNew from "./AddNew/AddNew";
 import InventoryList from "./InventoryList";
 import Modal from "./Modal";
 import history from "./history";
