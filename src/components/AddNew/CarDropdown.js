@@ -71,7 +71,9 @@ class CarDropdown extends React.Component {
     return (
       <div className="three fields">
         <div className="field">
-          <label className="label">Select a Manufacturer</label>
+          <h4>
+            <label className="label">Select a Manufacturer</label>
+          </h4>
           <select
             className="ui fluid dropdown"
             placeholder="Make"
@@ -90,7 +92,9 @@ class CarDropdown extends React.Component {
         </div>
 
         <div className="field">
-          <label className="label">Select vehicle type</label>
+          <h4>
+            <label className="label">Select vehicle type</label>
+          </h4>
           <select
             className="ui fluid dropdown"
             placeholder="Type"
@@ -109,7 +113,9 @@ class CarDropdown extends React.Component {
         </div>
 
         <div className="field">
-          <label className="label">Select a Model</label>
+          <h4>
+            <label className="label">Select a Model</label>
+          </h4>
           <select placeholder="Model" className="ui fluid dropdown">
             <option value="">--Choose Model--</option>
             {this.state.model.map((e, key) => {

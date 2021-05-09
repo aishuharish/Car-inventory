@@ -36,13 +36,13 @@ const AddNew = () => {
   // const [mfr,setMfr]=useState("Ford");
   // const [type,setType]=useState("Car");
   // const [model,setModel]=useState("");
-  const [price, setPrice] = useState(10000);
+  const [price, setPrice] = useState("");
   const [doors, setDoors] = useState(doorOptions[0]);
   const [fuel, setFuel] = useState(fuelOptions[0]);
   const [transmission, setTransmission] = useState(transmissionOptions[0]);
   const [interior, setInterior] = useState(interiorOptions[0]);
   const total =
-    parseInt(price) +
+    parseInt(price === "" ? 0 : price) +
     parseInt(doors.price) +
     parseInt(fuel.price) +
     parseInt(transmission.price) +
@@ -54,41 +54,11 @@ const AddNew = () => {
   }, [total]);
   return (
     <form className="ui form">
+      <br />
       <CarDropdown />
-
-      <h4 className="ui dividing header">Select the features</h4>
-
-      <RadioBtn
-        name="doors"
-        options={doorOptions}
-        label="Select the number of Doors"
-        onSelectedChange={setDoors}
-      />
       <br />
-      <RadioBtn
-        name="fuel"
-        options={fuelOptions}
-        label="Select Fuel type"
-        onSelectedChange={setFuel}
-      />
-      <br />
-      <RadioBtn
-        name="transmission"
-        options={transmissionOptions}
-        label="Select Transmission type"
-        onSelectedChange={setTransmission}
-      />
-      <br />
-      <RadioBtn
-        name="interior"
-        options={interiorOptions}
-        label="Select the interior"
-        onSelectedChange={setInterior}
-      />
-      <br />
-
-      <div className="four wide field">
-        <label className="label">Enter the base price of the vehicle</label>
+      <div className="four wide field ui huge form ">
+        <h3 className="ui header">Enter the base price of the vehicle</h3>
         <CurrencyInput
           placeholder="$15000"
           decimalsLimit={2}
@@ -102,6 +72,40 @@ const AddNew = () => {
           value={price}
         />
       </div>
+      <br />
+      <h4 className="ui dividing header">Select the features</h4>
+      <div className="four fields">
+        <RadioBtn
+          name="doors"
+          options={doorOptions}
+          label="Select the number of Doors"
+          onSelectedChange={setDoors}
+        />
+        <br />
+        <RadioBtn
+          name="fuel"
+          options={fuelOptions}
+          label="Select Fuel type"
+          onSelectedChange={setFuel}
+        />
+        <br />
+
+        <RadioBtn
+          name="transmission"
+          options={transmissionOptions}
+          label="Select Transmission type"
+          onSelectedChange={setTransmission}
+        />
+        <br />
+        <RadioBtn
+          name="interior"
+          options={interiorOptions}
+          label="Select the interior"
+          onSelectedChange={setInterior}
+        />
+        <br />
+      </div>
+
       <div className="four wide field">
         <h3>
           Total price of the vehicle:
