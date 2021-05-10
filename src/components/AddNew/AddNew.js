@@ -47,10 +47,10 @@ const AddNew = ({ setCars, cars }) => {
   const [interior, setInterior] = useState({});
   const total =
     parseInt(price === "" ? 0 : price) +
-    parseInt(doors.price) +
-    parseInt(fuel.price) +
-    parseInt(transmission.price) +
-    parseInt(interior.price);
+    parseInt(doors.price ? doors.price : 0) +
+    parseInt(fuel.price ? fuel.price : 0) +
+    parseInt(transmission.price ? transmission.price : 0) +
+    parseInt(interior.price ? interior.price : 0);
   const [totalPrice, setTotalPrice] = useState(total);
 
   const onFormSubmit = (event) => {
@@ -140,7 +140,7 @@ const AddNew = ({ setCars, cars }) => {
       <div className="four wide field right">
         <h3>
           Total price of the vehicle:
-          {totalPrice}
+          {totalPrice === 0 ? "" : totalPrice}
         </h3>
       </div>
       <div>
