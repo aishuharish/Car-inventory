@@ -24,8 +24,7 @@ const Modal = ({ cars }) => {
     parseInt(car.features.transmission === "Automatic" ? 1000.0 : 0.0) +
     parseInt(car.features.interior === "Cloth" ? 0.0 : 1500.0);
 
-  const url = require(`../images/${car.id}_${car.make}_${car.model}.png`)
-    .default;
+  const url = require(`../images/${car.make}_${car.model}.png`).default;
 
   return ReactDOM.createPortal(
     <div

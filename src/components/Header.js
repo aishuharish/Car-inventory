@@ -9,7 +9,7 @@ const Header = () => {
       </NavLink>
 
       <NavLink to="/new" className="ui item">
-        <h3 className="ui grey header">Add New</h3>
+        <h3 className="ui grey header">Add New Item to Inventory</h3>
       </NavLink>
     </div>
   );

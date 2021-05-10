@@ -12,8 +12,7 @@ const Item = ({ car }) => {
   // };
 
   // fetch image URL
-  const url = require(`../images/${car.id}_${car.make}_${car.model}.png`)
-    .default;
+  const url = require(`../images/${car.make}_${car.model}.png`).default;
 
   //Calculate the retail price
   const retailPrice = () =>

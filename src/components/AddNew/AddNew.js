@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+// import { useForm } from "react-hook-form";
 import CarDropdown from "./CarDropdown";
 import CurrencyInput from "react-currency-input-field";
 import RadioBtn from "./RadioBtn";
+import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
+import history from "../history";
 
 const doorOptions = [
   {
@@ -32,15 +36,15 @@ const interiorOptions = [
   { label: "Leather", value: "Leather", price: 1500.0 },
 ];
 
-const AddNew = () => {
-  // const [mfr,setMfr]=useState("Ford");
-  // const [type,setType]=useState("Car");
-  // const [model,setModel]=useState("");
+const AddNew = ({ setCars, cars }) => {
+  const [selectedMfr, setSelectedMfr] = useState("");
+  const [selectedType, setSelectedType] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
   const [price, setPrice] = useState("");
-  const [doors, setDoors] = useState(doorOptions[0]);
-  const [fuel, setFuel] = useState(fuelOptions[0]);
-  const [transmission, setTransmission] = useState(transmissionOptions[0]);
-  const [interior, setInterior] = useState(interiorOptions[0]);
+  const [doors, setDoors] = useState({});
+  const [fuel, setFuel] = useState({});
+  const [transmission, setTransmission] = useState({});
+  const [interior, setInterior] = useState({});
   const total =
     parseInt(price === "" ? 0 : price) +
     parseInt(doors.price) +
@@ -49,13 +53,40 @@ const AddNew = () => {
     parseInt(interior.price);
   const [totalPrice, setTotalPrice] = useState(total);
 
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newItem = {
+      id: uuidv4(),
+      type: selectedType,
+      make: selectedMfr,
+      model: selectedModel,
+      basePrice: price,
+      features: {
+        doors: doors.value,
+        fuel: fuel.value,
+        transmission: transmission.value,
+        interior: interior.value,
+      },
+    };
+
+    setCars([...cars, newItem]);
+    // <Redirect to="/" />;
+    history.push("/");
+  };
+
   useEffect(() => {
     setTotalPrice(total);
   }, [total]);
+
   return (
-    <form className="ui form">
+    <form className="ui form" onSubmit={onFormSubmit}>
       <br />
-      <CarDropdown />
+      <CarDropdown
+        setSelectedMfr={setSelectedMfr}
+        setSelectedType={setSelectedType}
+        setSelectedModel={setSelectedModel}
+      />
       <br />
       <div className="four wide field ui huge form ">
         <h3 className="ui header">Enter the base price of the vehicle</h3>
@@ -106,11 +137,19 @@ const AddNew = () => {
         <br />
       </div>
 
-      <div className="four wide field">
+      <div className="four wide field right">
         <h3>
           Total price of the vehicle:
           {totalPrice}
         </h3>
+      </div>
+      <div>
+        <Link to="/">
+          <button className="ui button right floated">Cancel</button>
+        </Link>
+        <button className="ui primary button  right floated " type="submit">
+          Add to Inventory
+        </button>
       </div>
     </form>
   );

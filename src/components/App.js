@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { Router } from "react-router";
 import Header from "./Header";
@@ -10,7 +10,11 @@ import history from "./history";
 import { data } from "../data";
 
 const App = () => {
-  const [cars, setCars] = useState(data);
+  const [vehicleData, setData] = useState([]);
+
+  useEffect(() => {
+    setData(data);
+  }, []);
 
   return (
     <div className="ui container">
@@ -23,15 +27,20 @@ const App = () => {
           <Route
             exact
             path="/"
-            render={(props) => <InventoryList cars={cars} setCars={setCars} />}
+            render={(props) => <InventoryList cars={vehicleData} />}
           />
           <Route
             exact
             path="/item/:id"
-            render={(props) => <Modal cars={cars} />}
+            render={(props) => <Modal cars={vehicleData} />}
           />
 
-          <Route path="/new" exact component={AddNew} />
+          <Route
+            path="/new"
+            exact
+            render={(props) => <AddNew cars={vehicleData} setCars={setData} />}
+            // component={AddNew}
+          />
         </div>
       </Router>
     </div>

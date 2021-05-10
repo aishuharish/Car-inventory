@@ -50,6 +50,7 @@ class CarDropdown extends React.Component {
 
   changeManufacturer(event) {
     this.setState({ selectedManufacturer: event.target.value });
+    this.props.setSelectedMfr(event.target.value);
     this.setState({
       type: this.state.manufacturer.find(
         (mfr) => mfr.name === event.target.value
@@ -59,6 +60,7 @@ class CarDropdown extends React.Component {
 
   changeType(event) {
     this.setState({ selectedType: event.target.value });
+    this.props.setSelectedType(event.target.value);
     const stats = this.state.manufacturer.find(
       (mfr) => mfr.name === this.state.selectedManufacturer
     ).type;
@@ -116,7 +118,11 @@ class CarDropdown extends React.Component {
           <h4>
             <label className="label">Select a Model</label>
           </h4>
-          <select placeholder="Model" className="ui fluid dropdown">
+          <select
+            placeholder="Model"
+            className="ui fluid dropdown"
+            onChange={(e) => this.props.setSelectedModel(e.target.value)}
+          >
             <option value="">--Choose Model--</option>
             {this.state.model.map((e, key) => {
               return (
