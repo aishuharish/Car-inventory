@@ -118,7 +118,7 @@ const AddNew = ({ setCars, cars }) => {
             value={price}
           />
           <label style={{ marginLeft: "50px", marginRight: "20px" }}>
-            Enter the number in stock
+            Number in Stock
           </label>
           <input
             type="text"
