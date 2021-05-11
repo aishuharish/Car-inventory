@@ -7,7 +7,7 @@ const Modal = ({ cars }) => {
   const match = useRouteMatch("/item/:id");
 
   const car = cars.find((car) => {
-    return parseInt(car.id) === parseInt(match.params.id);
+    return String(car.id) === String(match.params.id);
   });
 
   //Calculate the retail price
@@ -49,7 +49,7 @@ const Modal = ({ cars }) => {
             <p>Fuel : {car.features.fuel}</p>
             <p>Transmission : {car.features.transmission}</p>
             <p>Interior : {car.features.interior}</p>
-            <h3>Retail Price :${retailPrice()}</h3>
+            <h3>Sale Price : ${retailPrice()}</h3>
           </div>
         </div>
         <div className="actions">

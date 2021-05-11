@@ -42,7 +42,7 @@ const Item = ({ car }) => {
       <div className="content">
         <p className="header">{car.make}</p>
         <p>Model: {car.model}</p>
-        <p>Retail Price: ${retailPrice(car)}</p>
+        <p>Sale Price: ${retailPrice(car)}</p>
       </div>
     </Link>
   );

@@ -42,9 +42,9 @@ const AddNew = ({ setCars, cars }) => {
   const [selectedModel, setSelectedModel] = useState("");
   const [price, setPrice] = useState("");
   const [doors, setDoors] = useState({});
-  const [fuel, setFuel] = useState({});
-  const [transmission, setTransmission] = useState({});
-  const [interior, setInterior] = useState({});
+  const [fuel, setFuel] = useState("");
+  const [transmission, setTransmission] = useState("");
+  const [interior, setInterior] = useState("");
   const total =
     parseInt(price === "" ? 0 : price) +
     parseInt(doors.price ? doors.price : 0) +
@@ -78,6 +78,16 @@ const AddNew = ({ setCars, cars }) => {
   useEffect(() => {
     setTotalPrice(total);
   }, [total]);
+
+  const disabled =
+    selectedMfr.length > 0 &&
+    selectedType.length > 0 &&
+    selectedModel.length > 0 &&
+    price.length > 0 &&
+    Object.keys(doors).length > 0 &&
+    Object.keys(fuel).length > 0 &&
+    Object.keys(transmission).length > 0 &&
+    Object.keys(interior).length > 0;
 
   return (
     <form className="ui form" onSubmit={onFormSubmit}>
@@ -139,15 +149,18 @@ const AddNew = ({ setCars, cars }) => {
 
       <div className="four wide field right">
         <h3>
-          Total price of the vehicle:
-          {totalPrice === 0 ? "" : totalPrice}
+          Total price of the vehicle: {totalPrice === 0 ? "" : totalPrice}
         </h3>
       </div>
       <div>
         <Link to="/">
           <button className="ui button right floated">Cancel</button>
         </Link>
-        <button className="ui primary button  right floated " type="submit">
+        <button
+          className="ui primary button  right floated "
+          type="submit"
+          disabled={!disabled}
+        >
           Add to Inventory
         </button>
       </div>
