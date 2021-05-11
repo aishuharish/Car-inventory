@@ -5,6 +5,7 @@ export const data = [
     make: "Ford",
     model: "Focus",
     basePrice: "16500.00",
+    stockNumber: 10,
     features: {
       doors: 2,
       fuel: "Gas",
@@ -18,6 +19,7 @@ export const data = [
     make: "Ford",
     model: "Fusion",
     basePrice: "22000.00",
+    stockNumber: 8,
     features: {
       doors: 4,
       fuel: "Hybrid",
@@ -31,6 +33,7 @@ export const data = [
     make: "Ford",
     model: "F-150",
     basePrice: "24500.00",
+    stockNumber: 13,
     features: {
       doors: 4,
       fuel: "Gas",
@@ -44,6 +47,7 @@ export const data = [
     make: "Lincoln",
     model: "MKZ",
     basePrice: "34500.00",
+    stockNumber: 10,
     features: {
       doors: 2,
       fuel: "Electric",
@@ -57,6 +61,7 @@ export const data = [
     make: "Lincoln",
     model: "Navigator",
     basePrice: "56000.00",
+    stockNumber: 10,
     features: {
       doors: 4,
       fuel: "Gas",
@@ -70,6 +75,7 @@ export const data = [
     make: "Dodge",
     model: "Avenger",
     basePrice: "20500.00",
+    stockNumber: 12,
     features: {
       doors: 4,
       fuel: "Electric",
@@ -83,6 +89,7 @@ export const data = [
     make: "Dodge",
     model: "Dart",
     basePrice: "16000.00",
+    stockNumber: 11,
     features: {
       doors: 2,
       fuel: "Gas",
@@ -96,6 +103,7 @@ export const data = [
     make: "Dodge",
     model: "Durango",
     basePrice: "29500.00",
+    stockNumber: 10,
     features: {
       doors: 4,
       fuel: "Hybrid",
@@ -103,4 +111,46 @@ export const data = [
       interior: "Leather",
     },
   },
+  // {
+  //   id: 9,
+  //   type: "Car",
+  //   make: "Lincoln",
+  //   model: "MKZ",
+  //   basePrice: "32500.00",
+  //   stockNumber: 10,
+  //   features: {
+  //     doors: 4,
+  //     fuel: "Electric",
+  //     transmission: "Manual",
+  //     interior: "Leather",
+  //   },
+  // },
+  // {
+  //   id: 10,
+  //   type: "SUV",
+  //   make: "Lincoln",
+  //   model: "Navigator",
+  //   basePrice: "54000.00",
+  //   stockNumber: 15,
+  //   features: {
+  //     doors: 4,
+  //     fuel: "Electric",
+  //     transmission: "Automatic",
+  //     interior: "Leather",
+  //   },
+  // },
+  // {
+  //   id: 11,
+  //   type: "Car",
+  //   make: "Dodge",
+  //   model: "Avenger",
+  //   basePrice: "22500.00",
+  //   stockNumber: 12,
+  //   features: {
+  //     doors: 4,
+  //     fuel: "Electric",
+  //     transmission: "Automatic",
+  //     interior: "Leather",
+  //   },
+  // },
 ];

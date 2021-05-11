@@ -44,6 +44,8 @@ const Modal = ({ cars }) => {
             <img src={url} alt="carImage" />
           </div>
           <div className="description">
+            <p>Stock Id : {car.id}</p>
+            <p>Stock Number: {car.stockNumber}</p>
             <div className="ui header">Features</div>
             <p>Doors : {car.features.doors}</p>
             <p>Fuel : {car.features.fuel}</p>

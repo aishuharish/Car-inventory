@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className="ui container">
-      <h1 className="ui header center aligned">
+      <h1 className="ui header center aligned" style={{ margin: "20px 0" }}>
         Car Inventory Management System
       </h1>
       <Router history={history}>

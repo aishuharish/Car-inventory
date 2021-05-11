@@ -41,8 +41,18 @@ const Item = ({ car }) => {
       </div>
       <div className="content">
         <p className="header">{car.make}</p>
-        <p>Model: {car.model}</p>
-        <p>Sale Price: ${retailPrice(car)}</p>
+        <div className="ui two column grid">
+          <div className="column">
+            <p style={{ color: "#2F4F4F", fontWeight: "bold" }}>
+              Model: {car.model}
+            </p>
+            <p>Sale Price: ${retailPrice(car)}</p>
+          </div>
+          <div className="column">
+            <p>Stock Id : {car.id}</p>
+            <p>Stock Number: {car.stockNumber}</p>
+          </div>
+        </div>
       </div>
     </Link>
   );
