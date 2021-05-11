@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
-const InventoryList = ({ cars }) => {
+const InventoryList = ({ cars, setCars }) => {
   //const renderedList = cars.map((car) => <Item car={car} key={car.id} />);
 
   const renderedList = []
@@ -13,7 +13,7 @@ const InventoryList = ({ cars }) => {
         return a.make < b.make ? -1 : 1;
       }
     })
-    .map((car) => <Item car={car} key={car.id} />);
+    .map((car, index) => <Item car={car} key={car.id} />);
   return (
     <div>
       <div className="ui three cards">{renderedList}</div>

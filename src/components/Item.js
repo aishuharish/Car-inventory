@@ -1,41 +1,18 @@
 import React from "react";
 // import Modal from "./Modal";
 import { Link } from "react-router-dom";
+import { retailPrice } from "./retailPrice";
+import { numberFormat } from "./numberFormat";
 
 const Item = ({ car }) => {
-  // const [toggle, setToggle] = useState(false);
-
-  //toggle function
-  // const toggleState = () => {
-  //   if (toggle === false) setToggle(true);
-  //   else setToggle(false);
-  // };
-
   // fetch image URL
   const url = require(`../images/${car.make}_${car.model}.png`).default;
 
   //Calculate the retail price
-  const retailPrice = () =>
-    parseInt(car.basePrice) +
-    parseInt(car.features.doors === 4 ? 2500.0 : 0.0) +
-    parseInt(
-      car.features.fuel === "Gas"
-        ? 0.0
-        : car.features.fuel === "Hybrid"
-        ? 10000.0
-        : 15000.0
-    ) +
-    parseInt(car.features.transmission === "Automatic" ? 1000.0 : 0.0) +
-    parseInt(car.features.interior === "Cloth" ? 0.0 : 1500.0);
+  const retailPriceValue = retailPrice(car);
 
   return (
-    <Link
-      to={`/item/${car.id}`}
-      className="card"
-      key={car.id}
-      //   onClick={() => toggleState()}
-    >
-      {/* {toggle ? <Modal car={car} retailPrice={retailPrice()} /> : null} */}
+    <Link to={`/item/${car.id}`} className="card" key={car.id}>
       <div className="image">
         <img src={url} alt="carImage" />
       </div>
@@ -46,7 +23,7 @@ const Item = ({ car }) => {
             <p style={{ color: "#2F4F4F", fontWeight: "bold" }}>
               Model: {car.model}
             </p>
-            <p>Sale Price: ${retailPrice(car)}</p>
+            <p>Sale Price: {numberFormat(retailPriceValue)}</p>
           </div>
           <div className="column">
             <p>Stock number : {car.id}</p>
