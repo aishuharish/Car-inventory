@@ -16,7 +16,7 @@ const InventoryList = ({ cars, setCars }) => {
     .map((car, index) => <Item car={car} key={car.id} />);
   return (
     <div>
-      <div className="ui three cards">{renderedList}</div>
+      <div className="ui three stackable cards">{renderedList}</div>
     </div>
   );
 };

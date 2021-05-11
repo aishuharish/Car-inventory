@@ -17,20 +17,22 @@ const Item = ({ car }) => {
         <img src={url} alt="carImage" />
       </div>
       <div className="content">
-        <p className="header">{car.make}</p>
-        <div className="ui two column grid">
-          <div className="column">
-            <p style={{ color: "#2F4F4F", fontWeight: "bold" }}>
+        <p className="header">
+          {car.make} {car.model}
+        </p>
+        {/* <div className="ui two column grid"> */}
+        {/* <div className="column"> */}
+        {/* <p style={{ color: "#2F4F4F", fontWeight: "bold" }}>
               Model: {car.model}
-            </p>
-            <p>Sale Price: {numberFormat(retailPriceValue)}</p>
-          </div>
-          <div className="column">
-            <p>Stock number : {car.id}</p>
-            <p>Number in stock: {car.stockNumber}</p>
-          </div>
-        </div>
+            </p> */}
+        <p>Sale Price: {numberFormat(retailPriceValue)}</p>
+        {/* </div> */}
+        {/* <div className="column"> */}
+        {/* <p>Stock number : {car.id}</p> */}
+        {/* <p>Number in stock: {car.stockNumber}</p> */}
+        {/* </div> */}
       </div>
+      {/* </div> */}
     </Link>
   );
 };

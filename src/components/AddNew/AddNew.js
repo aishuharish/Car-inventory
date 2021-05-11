@@ -98,20 +98,22 @@ const AddNew = ({ setCars, cars }) => {
         setSelectedModel={setSelectedModel}
       />
       <br />
-      <div className="four wide field ui huge form ">
-        <h3 className="ui header">Enter the base price of the vehicle</h3>
-        <CurrencyInput
-          placeholder="$15000"
-          decimalsLimit={2}
-          prefix="$"
-          decimalSeparator="."
-          groupSeparator=","
-          intlConfig={{ locale: "en-US", currency: "USD" }}
-          onValueChange={(value) => {
-            setPrice(value);
-          }}
-          value={price}
-        />
+      <div class="ui centered grid" style={{ marginTop: "20px" }}>
+        <div className="inline field ui huge form ">
+          <label className="ui header">Enter the price of the vehicle</label>
+          <CurrencyInput
+            placeholder="$15000"
+            decimalsLimit={2}
+            prefix="$"
+            decimalSeparator="."
+            groupSeparator=","
+            intlConfig={{ locale: "en-US", currency: "USD" }}
+            onValueChange={(value) => {
+              setPrice(value);
+            }}
+            value={price}
+          />
+        </div>
       </div>
       <br />
       <h4 className="ui dividing header">Select the features</h4>

@@ -7,12 +7,15 @@ const TotalValue = ({ cars }) => {
 
   cars.map((car) => {
     const retailPriceValue = retailPrice(car);
-    totalValue = totalValue + retailPriceValue * car.stockNumber;
+    totalValue = totalValue + retailPriceValue;
     return totalValue;
   });
   return (
     <div style={{ textAlign: "right" }}>
-      <h4>Total inventory value: {numberFormat(totalValue)}</h4>
+      <h3>Total inventory value: {numberFormat(totalValue)}</h3>
+      <p style={{ color: "#2F4F4F", fontWeight: "bold" }}>
+        Total Stock: {cars.length}
+      </p>
     </div>
   );
 };

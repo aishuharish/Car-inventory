@@ -1,11 +1,13 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const data = [
   {
-    id: 1,
+    id: uuidv4(),
     type: "Car",
     make: "Ford",
     model: "Focus",
     basePrice: "16500.00",
-    stockNumber: 10,
+    // stockNumber: 10,
     features: {
       doors: 2,
       fuel: "Gas",
@@ -14,12 +16,12 @@ export const data = [
     },
   },
   {
-    id: 2,
+    id: uuidv4(),
     type: "Car",
     make: "Ford",
     model: "Fusion",
     basePrice: "22000.00",
-    stockNumber: 8,
+    // stockNumber: 8,
     features: {
       doors: 4,
       fuel: "Hybrid",
@@ -28,12 +30,12 @@ export const data = [
     },
   },
   {
-    id: 3,
+    id: uuidv4(),
     type: "Truck",
     make: "Ford",
     model: "F-150",
     basePrice: "24500.00",
-    stockNumber: 13,
+    // stockNumber: 13,
     features: {
       doors: 4,
       fuel: "Gas",
@@ -42,12 +44,12 @@ export const data = [
     },
   },
   {
-    id: 4,
+    id: uuidv4(),
     type: "Car",
     make: "Lincoln",
     model: "MKZ",
     basePrice: "34500.00",
-    stockNumber: 10,
+    // stockNumber: 10,
     features: {
       doors: 2,
       fuel: "Electric",
@@ -56,12 +58,12 @@ export const data = [
     },
   },
   {
-    id: 5,
+    id: uuidv4(),
     type: "SUV",
     make: "Lincoln",
     model: "Navigator",
     basePrice: "56000.00",
-    stockNumber: 10,
+    // stockNumber: 10,
     features: {
       doors: 4,
       fuel: "Gas",
@@ -70,12 +72,12 @@ export const data = [
     },
   },
   {
-    id: 6,
+    id: uuidv4(),
     type: "Car",
     make: "Dodge",
     model: "Avenger",
     basePrice: "20500.00",
-    stockNumber: 12,
+    // stockNumber: 12,
     features: {
       doors: 4,
       fuel: "Electric",
@@ -84,12 +86,12 @@ export const data = [
     },
   },
   {
-    id: 7,
+    id: uuidv4(),
     type: "Car",
     make: "Dodge",
     model: "Dart",
     basePrice: "16000.00",
-    stockNumber: 11,
+    // stockNumber: 11,
     features: {
       doors: 2,
       fuel: "Gas",
@@ -98,12 +100,12 @@ export const data = [
     },
   },
   {
-    id: 8,
+    id: uuidv4(),
     type: "SUV",
     make: "Dodge",
     model: "Durango",
     basePrice: "29500.00",
-    stockNumber: 10,
+    // stockNumber: 10,
     features: {
       doors: 4,
       fuel: "Hybrid",

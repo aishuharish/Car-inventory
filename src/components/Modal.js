@@ -36,7 +36,7 @@ const Modal = ({ cars }) => {
           </div>
           <div className="description">
             <p>Stock number : {car.id}</p>
-            <p>Number in Stock: {car.stockNumber}</p>
+            {/* <p>Number in Stock: {car.stockNumber}</p> */}
             <div className="ui header">Features</div>
             <p>Doors : {car.features.doors}</p>
             <p>Fuel : {car.features.fuel}</p>
