@@ -49,8 +49,8 @@ const Item = ({ car }) => {
             <p>Sale Price: ${retailPrice(car)}</p>
           </div>
           <div className="column">
-            <p>Stock Id : {car.id}</p>
-            <p>Stock Number: {car.stockNumber}</p>
+            <p>Stock number : {car.id}</p>
+            <p>Number in stock: {car.stockNumber}</p>
           </div>
         </div>
       </div>

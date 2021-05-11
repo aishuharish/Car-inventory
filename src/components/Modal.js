@@ -44,8 +44,8 @@ const Modal = ({ cars }) => {
             <img src={url} alt="carImage" />
           </div>
           <div className="description">
-            <p>Stock Id : {car.id}</p>
-            <p>Stock Number: {car.stockNumber}</p>
+            <p>Stock number : {car.id}</p>
+            <p>Number in Stock: {car.stockNumber}</p>
             <div className="ui header">Features</div>
             <p>Doors : {car.features.doors}</p>
             <p>Fuel : {car.features.fuel}</p>
@@ -55,10 +55,13 @@ const Modal = ({ cars }) => {
           </div>
         </div>
         <div className="actions">
+          <Link to={`/item/delete/${car.id}`} className="ui button negative">
+            Delete
+          </Link>
           <Link
             to="/"
             className="ui primary button"
-            onClick={() => history.push("/")}
+            // onClick={() => history.push("/")}
           >
             Close
           </Link>

@@ -6,6 +6,7 @@ import AddNew from "./AddNew/AddNew";
 import InventoryList from "./InventoryList";
 import Modal from "./Modal";
 import history from "./history";
+import ItemDelete from "./ItemDelete";
 
 import { data } from "../data";
 
@@ -15,6 +16,24 @@ const App = () => {
   useEffect(() => {
     setData(data);
   }, []);
+
+  // useEffect(() => {
+  //   const retailPrice = (car) =>{return(
+  //   parseInt(car.basePrice) +
+  //   parseInt(car.features.doors === 4 ? 2500.0 : 0.0) +
+  //   parseInt(
+  //     car.features.fuel === "Gas"
+  //       ? 0.0
+  //       : car.features.fuel === "Hybrid"
+  //       ? 10000.0
+  //       : 15000.0
+  //   ) +
+  //   parseInt(car.features.transmission === "Automatic" ? 1000.0 : 0.0) +
+  //   parseInt(car.features.interior === "Cloth" ? 0.0 : 1500.0))}
+
+  //     const cars = vehicleData.map((car) =>car.retailPrice retailPrice(car) );
+  //     setData(cars);
+  //   }, [vehicleData]);
 
   return (
     <div className="ui container">
@@ -33,6 +52,14 @@ const App = () => {
             exact
             path="/item/:id"
             render={(props) => <Modal cars={vehicleData} />}
+          />
+          <Route
+            exact
+            path="/item/delete/:id"
+            render={(props) => (
+              <ItemDelete cars={vehicleData} setCars={setData} />
+            )}
+            // component={ItemDelete}
           />
 
           <Route
