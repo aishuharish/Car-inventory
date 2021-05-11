@@ -42,7 +42,7 @@ const Modal = ({ cars }) => {
             <p>Fuel : {car.features.fuel}</p>
             <p>Transmission : {car.features.transmission}</p>
             <p>Interior : {car.features.interior}</p>
-            <h3>Sale Price : {numberFormat(retailPriceValue)}</h3>
+            <h3>Sales Price : {numberFormat(retailPriceValue)}</h3>
           </div>
         </div>
         <div className="actions">

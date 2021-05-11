@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import { useForm } from "react-hook-form";
 import CarDropdown from "./CarDropdown";
 import CurrencyInput from "react-currency-input-field";
 import RadioBtn from "./RadioBtn";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
 import history from "../history";
+import { numberFormat } from "../numberFormat";
 
 const doorOptions = [
   {
@@ -45,6 +45,8 @@ const AddNew = ({ setCars, cars }) => {
   const [fuel, setFuel] = useState("");
   const [transmission, setTransmission] = useState("");
   const [interior, setInterior] = useState("");
+  const [numberInStock, setNumber] = useState(1);
+
   const total =
     parseInt(price === "" ? 0 : price) +
     parseInt(doors.price ? doors.price : 0) +
@@ -55,23 +57,25 @@ const AddNew = ({ setCars, cars }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    let newItem = [];
+    for (let i = 0; i < numberInStock; i++) {
+      newItem.push({
+        id: uuidv4(),
+        type: selectedType,
+        make: selectedMfr,
+        model: selectedModel,
+        basePrice: price,
+        features: {
+          doors: doors.value,
+          fuel: fuel.value,
+          transmission: transmission.value,
+          interior: interior.value,
+        },
+      });
+    }
 
-    const newItem = {
-      id: uuidv4(),
-      type: selectedType,
-      make: selectedMfr,
-      model: selectedModel,
-      basePrice: price,
-      features: {
-        doors: doors.value,
-        fuel: fuel.value,
-        transmission: transmission.value,
-        interior: interior.value,
-      },
-    };
+    setCars([...cars, ...newItem]);
 
-    setCars([...cars, newItem]);
-    // <Redirect to="/" />;
     history.push("/");
   };
 
@@ -98,9 +102,9 @@ const AddNew = ({ setCars, cars }) => {
         setSelectedModel={setSelectedModel}
       />
       <br />
-      <div class="ui centered grid" style={{ marginTop: "20px" }}>
-        <div className="inline field ui huge form ">
-          <label className="ui header">Enter the price of the vehicle</label>
+      <div className="ui centered grid" style={{ marginTop: "20px" }}>
+        <div className="inline field ui large form ">
+          <label className="ui header">Enter Retail price of the vehicle</label>
           <CurrencyInput
             placeholder="$15000"
             decimalsLimit={2}
@@ -112,6 +116,19 @@ const AddNew = ({ setCars, cars }) => {
               setPrice(value);
             }}
             value={price}
+          />
+          <label style={{ marginLeft: "50px", marginRight: "20px" }}>
+            Enter the number in stock
+          </label>
+          <input
+            type="text"
+            pattern="[0-9]*"
+            value={numberInStock}
+            onInput={(e) =>
+              e.target.validity.valid
+                ? setNumber(e.target.value)
+                : numberInStock
+            }
           />
         </div>
       </div>
@@ -149,10 +166,11 @@ const AddNew = ({ setCars, cars }) => {
         <br />
       </div>
 
-      <div className="four wide field right">
-        <h3>
-          Total price of the vehicle: {totalPrice === 0 ? "" : totalPrice}
-        </h3>
+      <div style={{ margin: "30px", textAlign: "right" }}>
+        <h2>
+          Sales price per vehicle:{" "}
+          {totalPrice === 0 ? "" : numberFormat(totalPrice)}
+        </h2>
       </div>
       <div>
         <Link to="/">

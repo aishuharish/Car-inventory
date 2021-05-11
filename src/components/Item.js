@@ -25,7 +25,7 @@ const Item = ({ car }) => {
         {/* <p style={{ color: "#2F4F4F", fontWeight: "bold" }}>
               Model: {car.model}
             </p> */}
-        <p>Sale Price: {numberFormat(retailPriceValue)}</p>
+        <p>Sales Price: {numberFormat(retailPriceValue)}</p>
         {/* </div> */}
         {/* <div className="column"> */}
         {/* <p>Stock number : {car.id}</p> */}
