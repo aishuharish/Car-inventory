@@ -1,11 +1,11 @@
+//Modal template
+
 import React from "react";
 import ReactDOM from "react-dom";
-// import { useRouteMatch } from "react-router-dom";
 
+//Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+//two arguments (children to be rendered, DOM node)
 const ModalDelete = (props) => {
-  // const match = useRouteMatch("/item/delete/:id");
-  // const id = match.params.id;
-
   return ReactDOM.createPortal(
     <div onClick={props.onDismiss} className="ui dimmer modals visible active">
       <div

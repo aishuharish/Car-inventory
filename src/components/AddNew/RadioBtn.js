@@ -1,3 +1,12 @@
+//Reusable radio button
+
+//Example:  <RadioBtn
+//           name="fuel"
+//           options={fuelOptions}
+//           label="Select Fuel type"
+//           onSelectedChange={setFuel}
+//         />
+
 import React from "react";
 
 const RadioBtn = ({ name, options, label, onSelectedChange }) => {

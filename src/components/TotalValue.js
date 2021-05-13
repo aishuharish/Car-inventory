@@ -1,13 +1,15 @@
+//Component for total inventory value and total number of stock
+
 import React from "react";
-import { retailPrice } from "./retailPrice";
-import { numberFormat } from "./numberFormat";
+import { salePrice } from "./extra/salePrice";
+import { numberFormat } from "./extra/numberFormat";
 
 const TotalValue = ({ cars }) => {
   let totalValue = 0;
 
   cars.map((car) => {
-    const retailPriceValue = retailPrice(car);
-    totalValue = totalValue + retailPriceValue;
+    const salePriceValue = salePrice(car);
+    totalValue = totalValue + salePriceValue;
     return totalValue;
   });
   return (

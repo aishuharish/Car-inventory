@@ -1,77 +1,51 @@
+//Dropdown for make, type and model
+//Chained dropdown
+
 import React from "react";
+import { manufacturer } from "../../data/manufacture";
 
 class CarDropdown extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      manufacturer: [],
-      type: [],
-      model: [],
-      selectedManufacturer: "--Choose Manufacturer--",
-      selectedType: "--Choose Type--",
-    };
-    this.changeManufacturer = this.changeManufacturer.bind(this);
-    this.changeType = this.changeType.bind(this);
-  }
+  //declare state and define initial state
+  state = {
+    manufacturer: [],
+    type: [],
+    model: [],
+    selectedManufacturer: "--Choose Manufacturer--",
+    selectedType: "--Choose Type--",
+  };
 
+  //load the manufacture data to state
   componentDidMount() {
-    this.setState({
-      manufacturer: [
-        {
-          name: "Ford",
-          type: [
-            {
-              name: "Car",
-              model: ["Focus", "Fusion"],
-            },
-            {
-              name: "Truck",
-              model: ["F-150"],
-            },
-          ],
-        },
-        {
-          name: "Lincoln",
-          type: [
-            { name: "Car", model: ["MKZ"] },
-            { name: "SUV", model: ["Navigator"] },
-          ],
-        },
-        {
-          name: "Dodge",
-          type: [
-            { name: "Car", model: ["Avenger", "Dart"] },
-            { name: "SUV", model: ["Durango"] },
-          ],
-        },
-      ],
-    });
+    this.setState({ manufacturer: manufacturer });
   }
 
-  changeManufacturer(event) {
+  //update selected manufacture and its resulting type
+  changeManufacturer = (event) => {
     this.setState({ selectedManufacturer: event.target.value });
-    this.props.setSelectedMfr(event.target.value);
+    this.props.setSelectedMfr(event.target.value); //updating the selected manufacture to add new form component
     this.setState({
       type: this.state.manufacturer.find(
         (mfr) => mfr.name === event.target.value
       ).type,
     });
-  }
+  };
 
-  changeType(event) {
+  //update selected type and its resulting model
+  changeType = (event) => {
     this.setState({ selectedType: event.target.value });
-    this.props.setSelectedType(event.target.value);
+    this.props.setSelectedType(event.target.value); //updating the selected model to add new form component
     const stats = this.state.manufacturer.find(
       (mfr) => mfr.name === this.state.selectedManufacturer
     ).type;
     this.setState({
       model: stats.find((stat) => stat.name === event.target.value).model,
     });
-  }
+  };
 
   render() {
     return (
       <div className="three fields">
+        {/*  Make dropdown */}
         <div className="field">
           <h4>
             <label className="label">Select a Manufacturer</label>
@@ -93,6 +67,7 @@ class CarDropdown extends React.Component {
           </select>
         </div>
 
+        {/* type dropdown */}
         <div className="field">
           <h4>
             <label className="label">Select vehicle type</label>
@@ -114,6 +89,7 @@ class CarDropdown extends React.Component {
           </select>
         </div>
 
+        {/* model dropdown */}
         <div className="field">
           <h4>
             <label className="label">Select a Model</label>

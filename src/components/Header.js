@@ -1,3 +1,5 @@
+//Header component for navigation
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 

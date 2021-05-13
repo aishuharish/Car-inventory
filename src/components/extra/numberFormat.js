@@ -1,3 +1,5 @@
+//function to display number in USD currency format
+
 export const numberFormat = (value) =>
   new Intl.NumberFormat("en-US", {
     style: "currency",

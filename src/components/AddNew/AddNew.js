@@ -1,42 +1,24 @@
+//Component for creating new form to add new vehicle detail
+//Uses reusable radio button
+
 import React, { useState, useEffect } from "react";
 import CarDropdown from "./CarDropdown";
-import CurrencyInput from "react-currency-input-field";
+import CurrencyInput from "react-currency-input-field"; //Displays the field in currency format as user enters
 import RadioBtn from "./RadioBtn";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
-import history from "../history";
-import { numberFormat } from "../numberFormat";
+import history from "../extra/history";
+import { numberFormat } from "../extra/numberFormat";
 
-const doorOptions = [
-  {
-    label: "2 doors",
-    value: "2",
-    price: 0.0,
-  },
-  {
-    label: "4 doors",
-    value: "4",
-    price: 2500.0,
-  },
-];
+//import input data for Radio buttons
+import { doorOptions } from "../../data/door";
+import { fuelOptions } from "../../data/fuel";
+import { transmissionOptions } from "../../data/transmission";
+import { interiorOptions } from "../../data/interior";
 
-const fuelOptions = [
-  { label: "Gas", value: "Gas", price: 0.0 },
-  { label: "Hybrid", value: "Hybrid", price: 10000.0 },
-  { label: "Electric", value: "Elelctric", price: 15000.0 },
-];
-
-const transmissionOptions = [
-  { label: "Manual", value: "Manual", price: 0.0 },
-  { label: "Automatic", value: "Automatic", price: 1000.0 },
-];
-
-const interiorOptions = [
-  { label: "Cloth", value: "Cloth", price: 0.0 },
-  { label: "Leather", value: "Leather", price: 1500.0 },
-];
-
+//Component for creating new form to add new vehicle detail
 const AddNew = ({ setCars, cars }) => {
+  //All the form fields are stored in state
   const [selectedMfr, setSelectedMfr] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
@@ -47,6 +29,7 @@ const AddNew = ({ setCars, cars }) => {
   const [interior, setInterior] = useState("");
   const [numberInStock, setNumber] = useState(1);
 
+  //Total Sale price Calculation
   const total =
     parseInt(price === "" ? 0 : price) +
     parseInt(doors.price ? doors.price : 0) +
@@ -55,6 +38,12 @@ const AddNew = ({ setCars, cars }) => {
     parseInt(interior.price ? interior.price : 0);
   const [totalPrice, setTotalPrice] = useState(total);
 
+  //Change total price value as user inputs the data
+  useEffect(() => {
+    setTotalPrice(total);
+  }, [total]);
+
+  //Function for form submission
   const onFormSubmit = (event) => {
     event.preventDefault();
     let newItem = [];
@@ -73,16 +62,13 @@ const AddNew = ({ setCars, cars }) => {
         },
       });
     }
-
+    //Adding new vehicle to the state
     setCars([...cars, ...newItem]);
-
+    //Link to homepage
     history.push("/");
   };
 
-  useEffect(() => {
-    setTotalPrice(total);
-  }, [total]);
-
+  //Disable the submit buttom untill all mandatory fields have value
   const disabled =
     selectedMfr.length > 0 &&
     selectedType.length > 0 &&
@@ -105,9 +91,11 @@ const AddNew = ({ setCars, cars }) => {
       <div className="ui centered grid" style={{ marginTop: "20px" }}>
         <div className="inline field ui large form ">
           <label className="ui header">Enter Retail price of the vehicle</label>
+
           <CurrencyInput
             placeholder="$15000"
             decimalsLimit={2}
+            size="10"
             prefix="$"
             decimalSeparator="."
             groupSeparator=","
@@ -117,6 +105,7 @@ const AddNew = ({ setCars, cars }) => {
             }}
             value={price}
           />
+
           <label style={{ marginLeft: "50px", marginRight: "20px" }}>
             Number in Stock
           </label>
@@ -124,6 +113,7 @@ const AddNew = ({ setCars, cars }) => {
             type="text"
             pattern="[0-9]*"
             value={numberInStock}
+            size="6"
             onInput={(e) =>
               e.target.validity.valid
                 ? setNumber(e.target.value)

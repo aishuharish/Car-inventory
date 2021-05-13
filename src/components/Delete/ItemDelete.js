@@ -1,17 +1,23 @@
+//Determine the item to be deleted and change the state
+//Pass the props to modal for showing delete message and actions
+
 import React from "react";
 import ModalDelete from "./ModalDelete";
-import history from "./history";
+import history from "../extra/history";
 import { Link, useRouteMatch } from "react-router-dom";
 
 const ItemDelete = (props) => {
+  //fetch the item with the id seletced using match params
   const match = useRouteMatch("/item/delete/:id");
   const id = match.params.id;
 
+  //Changing the state to remove the id that needs to be deleted
   const handleDelete = () => {
     const cars = props.cars.filter((car) => String(car.id) !== String(id));
     props.setCars(cars);
   };
 
+  //Define the actions that modal has to perform with routing links and event handlers
   const actions = (
     <React.Fragment>
       <Link to="/">

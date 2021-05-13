@@ -1,4 +1,6 @@
-export const retailPrice = (car) => {
+//Calculation for sale price
+
+export const salePrice = (car) => {
   const data =
     parseInt(car.basePrice) +
     parseInt(car.features.doors === 4 ? 2500.0 : 0.0) +

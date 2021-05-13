@@ -1,9 +1,10 @@
+//Sort the input data and generate inidividual item/card
+
 import React from "react";
 import Item from "./Item";
 
 const InventoryList = ({ cars, setCars }) => {
-  //const renderedList = cars.map((car) => <Item car={car} key={car.id} />);
-
+  //sorting the vehicle based on make and model
   const renderedList = []
     .concat(cars)
     .sort((a, b) => {
@@ -14,6 +15,7 @@ const InventoryList = ({ cars, setCars }) => {
       }
     })
     .map((car, index) => <Item car={car} key={car.id} />);
+
   return (
     <div>
       <div className="ui three stackable cards">{renderedList}</div>
