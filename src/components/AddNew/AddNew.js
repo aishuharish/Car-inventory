@@ -110,10 +110,10 @@ const AddNew = ({ setCars, cars }) => {
             Number in Stock
           </label>
           <input
-            type="text"
-            pattern="[0-9]*"
+            type="number"
             value={numberInStock}
-            size="6"
+            min="1"
+            max="999999"
             onInput={(e) =>
               e.target.validity.valid
                 ? setNumber(e.target.value)
