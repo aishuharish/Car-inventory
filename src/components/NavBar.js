@@ -3,7 +3,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const NavBar = () => {
   return (
     <div className="ui two item menu">
       <NavLink to="/" exact className="ui item" activeClassName="active">
@@ -17,4 +17,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

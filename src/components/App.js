@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { Router } from "react-router";
-import Header from "./Header";
+import NavBar from "./NavBar";
 import AddNew from "./AddNew/AddNew";
 import InventoryList from "./ItemDetails/InventoryList";
 import Modal from "./ItemDetails/Modal";
@@ -29,7 +29,7 @@ const App = () => {
       </h1>
       <TotalValue cars={vehicleData} />
       <Router history={history}>
-        <Header />
+        <NavBar />
         <div>
           <Route
             exact
